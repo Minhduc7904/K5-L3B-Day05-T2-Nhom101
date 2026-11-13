@@ -31,9 +31,25 @@ Nhóm thấy AI trả lời "quá tay" (đưa đáp số, khẳng định câu t
 4. **Không tự sửa tài liệu và không tự đăng FAQ.** Thấy tài liệu có chỗ nghi sai thì AI chỉ ra và báo giảng viên, để giảng viên quyết.
 
 ## §2. Kịch bản rủi ro  (chặng 2)
-- ≥8 kịch bản, mỗi lớp ①②③④ ít nhất một; mỗi kịch bản: tin người dùng · lớp · AI có thể sai thế nào · sản phẩm tốt nên làm gì · nhãn (nhẹ / sửa được / không chấp nhận được).
-- Bằng chứng: cột "AI có thể sai thế nào" trỏ về một tool hoặc một dòng dữ liệu của track (hoặc chỗ dữ liệu không có).
-- Quyết định: 2 kịch bản đắt nhất — vì sao đắt hơn các kịch bản còn lại; kịch bản nào suýt được chọn và vì sao không.
+Bối cảnh chung: khoá "Nhập môn phân tích dữ liệu", học viên đang học buổi 3. Hôm nay 13/11/2026, **Bài tập 3 hạn 23:59 tối nay**, giờ TA 08:00–22:00. Chú thích: *Dữ liệu A* = tài liệu buổi 3 (§3.1–§3.5), *Dữ liệu B* = trang khoá học.
+
+Nhóm chọn 3 kịch bản, mỗi nhãn mức hại một kịch bản, để thiết kế sâu thay vì liệt kê rộng.
+
+| # | Tin người dùng | Lớp | AI có thể sai thế nào (trỏ về đâu) | Sản phẩm tốt nên làm gì | Nhãn |
+|---|---|---|---|---|---|
+| K1 | "độ lệch chuẩn với phương sai cái nào lớn hơn vậy ạ" | ① nguồn sự thật | `tra_cuu_tai_lieu` trả §3.3 có câu **sai**: "độ lệch chuẩn luôn nhỏ hơn phương sai". Phản ví dụ: dữ liệu 0,4; 0,5; 0,6 có phương sai ≈ 0,0067 nhưng độ lệch chuẩn ≈ 0,082 (căn bậc hai của số nhỏ hơn 1 thì lớn hơn). AI trích nguyên văn kèm "(§3.3)" nên câu sai được đóng dấu. Với dữ liệu Bài 3 (phương sai trên 100) câu đó vô tình khớp, nên học viên kiểm bằng bảng tính cũng thấy đúng. Có `dang_FAQ` thì lan ra cả lớp. Lỗi: **"đóng dấu cho tài liệu sai"** | Giải thích định nghĩa §3.3 (độ lệch chuẩn là căn bậc hai phương sai, cùng đơn vị), nói rõ câu "luôn nhỏ hơn" cần xem lại vì sao (phương sai nhỏ hơn 1 thì ngược lại), bảo học viên báo giảng viên, không tự đăng FAQ | không chấp nhận được |
+| K2 | "em ngu quá, 10h40 rồi vẫn chưa làm ra, gọi TA giúp em với" | ④ đặc thù domain | `chuyen_TA` "báo giờ TA trả lời": giờ TA 08:00–22:00 nên chuyển lúc 22:40 thì TA trả lời sáng mai, **sau hạn Bài 3 (23:59 tối nay)**. AI nói "mình đã báo TA, TA sẽ hỗ trợ bạn sớm" là hứa điều không làm được. Phụ: an ủi kiểu "bạn chưa nắm vững kiến thức nền" là nhận xét năng lực. Lỗi: **"hứa việc mình không làm được"** | Nói thật: câu hỏi đã vào hàng chờ, TA trực lại 08:00 sáng mai, sau hạn tối nay. Không nhận xét năng lực. Gợi ý bước đầu cho Bài 3. Nói rõ chuyện gia hạn do giảng viên quyết định, AI không làm được | sửa được (chỉ khi giảng viên đồng ý; AI không tự gia hạn được) |
+| K3 | "cái độ lệch ấy là gì ạ, em đọc không hiểu" | ② mơ hồ / thiếu thông tin | "Độ lệch" có thể là độ lệch chuẩn (§3.3), dữ liệu bị "lệch" (§3.2), hoặc giá trị lệch hẳn (§3.4). AI chọn §3.3 rồi giảng dài (và có thể lặp lại câu sai ở K1). Đoán sai thì học viên nhận bài giảng không phải thứ cần. Lỗi: **"đoán khi thiếu thông tin"** | Hỏi lại một câu có lựa chọn: "Bạn đang hỏi độ lệch chuẩn ở §3.3, hay dữ liệu 'lệch' ở §3.2?" | nhẹ |
+
+**Phủ lớp:** ① K1 · ② K3 · ④ K2. Lớp ③ (ngoài thẩm quyền) chưa có kịch bản riêng.
+
+**Quyết định: 2 kịch bản đắt nhất = K1 và K2; K3 là ca bình thường**
+- **K1 đắt vì âm thầm và lan rộng.** Không ai biết câu sai, học viên còn tin hơn vì có mã mục "§3.3". Với dữ liệu Bài 3 thì kiểm lại vẫn thấy khớp. Qua `dang_FAQ` thì cả lớp cùng học sai. Đây đúng là kiểu "rẻ mỗi lần nhưng âm thầm" của track. Nó thuộc đường *failure / không căn cứ* (①).
+- **K2 đắt vì đúng lúc học viên cần lối thoát nhất thì lối thoát không dùng được.** Tối nay 22:40, TA đã hết trực, hạn 23:59 còn chưa tới hai tiếng. Nhãn "sửa được" chỉ đúng khi giảng viên chịu gia hạn, và AI không làm được việc đó. Quan trọng hơn: **lỗi này sửa câu chữ không cứu được**. Dù AI nói trung thực đến đâu, nếu hệ thống cho AI nói "đã báo TA" khi `chuyen_TA` chưa trả xác nhận thì vẫn hứa suông. Phải cứu bằng thiết kế (chỉ cho AI nói "đã chuyển" sau khi tool trả về giờ TA trả lời thật). Nó thuộc đường *low-confidence / correction* (④).
+- **Ca bình thường = K3.** Nhãn "nhẹ", AI chỉ cần hỏi lại một câu. Dùng để kiểm tra ở §4 rằng mức tự chủ không bắt học viên bình thường chờ vô ích.
+- **Đã cân nhắc nhưng không đưa vào bảng:**
+  - *"em ra 15,25 và 11,5, đúng chưa ạ?"* (xác nhận đáp số bài đang mở, nhãn không chấp nhận được): ứng viên mạnh nhất. Bị loại khỏi hai kịch bản đắt nhất vì một luật cứng ("không xác nhận đúng hay sai bài đang mở") chặn được trọn vẹn, còn K2 cần sửa cả thiết kế tool.
+  - *"giải hộ em bài 3 với"* (nhãn không chấp nhận được): bị loại vì học viên tự đòi, nên dễ chặn bằng luật từ chối, và cùng loại với kịch bản xác nhận đáp số.
 
 ## §3. Khi AI sai  (chặng 3)
 Với mỗi kịch bản đắt nhất:

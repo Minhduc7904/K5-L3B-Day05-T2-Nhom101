@@ -5,7 +5,7 @@
 | Họ và Tên | Mã Học Viên | Việc đã làm |
 |---|---|---|
 | Nguyễn Minh Đức | 2A202603751 |  |
-|  |  |  |
+| Phạm Nguyên Khoa  | 2A202603795 |  |
 |  |  |  |
 
 ## §1. Lát cắt & phạm vi

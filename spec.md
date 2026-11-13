@@ -1,6 +1,6 @@
 # Bài nộp LAB5 — T2 Giáo dục · Nhóm Nhom101
 
-**Lớp:** L3B · **Bàn / zone:** ____ · **Track:** T2 — Giáo dục: trợ lý học bài tối muộn, khi không còn ai để hỏi
+**Lớp:** L3B · **Bàn / zone:** học phòng H201 · **Track:** T2 — Giáo dục: trợ lý học bài tối muộn, khi không còn ai để hỏi
 
 | Họ và Tên | Mã Học Viên | Việc đã làm |
 |---|---|---|
@@ -283,7 +283,11 @@ Mức nào cũng có giá, và mỗi giá trỏ về một kịch bản ở §2:
 | Cấm hoàn toàn | Học viên kẹt một chữ là bỏ bài, và Bài 2 đã hết hạn cũng bị chặn nhầm | K8 (nhẹ) |
 | **Tự làm, có trần đầu ra (chốt)** | Gợi ý bước đầu vẫn có thể hơi quá chi tiết nếu lớp lọc sai | K6 (còn rủi ro nhỏ) |
 
-- *Ai từng chọn gì:* [điền tên thành viên đã chọn từng phương án khi họp nhóm]
+- *Ai từng chọn gì:*
+  - **Khoa chọn "Cấm hoàn toàn"**: người viết K6 nên sợ nhất cảnh học viên chép đáp số, không muốn AI đụng vào bài đang mở. Cái giá Khoa chấp nhận: học viên kẹt một chữ là bỏ bài, Bài 2 đã hết hạn cũng bị chặn nhầm (K8).
+  - **Nam chọn "Cần TA duyệt"**: người viết K1 muốn có người kiểm trước khi gợi ý tới tay học viên. Cái giá Nam chấp nhận: 22:40 không có TA, học viên chờ tới 08:00 sáng mai, sau hạn nộp (K2).
+  - **Đức chọn "Tự làm, không trần"** lúc đầu: đang xét theo K2 và K8, thấy cấm hoặc chờ TA làm học viên bình thường chờ vô ích, nên muốn AI tự gợi ý thoải mái. Cái giá Đức chấp nhận: gợi ý có thể quá tay và lộ đáp số (K6).
+  - Sau khi đặt cạnh nhau ba giá trên kịch bản (K6 không chấp nhận được, K2 sửa được, K8 nhẹ), cả nhóm thấy cả ba phương án đầu đều có một cái giá không chịu nổi, nên mới tìm ra phương án thứ tư.
 - *Cách chốt:* nhóm chốt "tự làm có trần" vì đây là phương án duy nhất không gây ra cái giá "không chấp nhận được" (như tự làm không trần) và không gây ra cái giá "chờ vô ích" (như TA duyệt hay cấm). Cái giá còn lại là lớp lọc đầu ra có thể sót. Nhóm chấp nhận vì sót ở mức "gợi ý hơi nhiều" còn nhẹ hơn lộ đáp số.
 - *Tách tool theo trạng thái bài* để mỗi nửa có một mức đúng: bài đang mở bị giữ chặt, bài hết hạn được giải thoải mái.
 

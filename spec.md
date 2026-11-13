@@ -65,12 +65,61 @@ Hai kịch bản này đại diện cho 2 thái cực rủi ro khác hẳn nhau:
 - **K7 (Hỏi bài Buổi 7 p-value):** Suýt chọn vì AI rất dễ chém gió ngoài tài liệu. Nhưng nhóm loại vì cái giá khi sai ở K7 chỉ ở mức "nhẹ/sửa được" — học viên bị ngợp nhưng khi lên lớp Buổi 7 giảng viên sẽ dạy lại bài bản, không phá huỷ bài tập hay gieo rắc kiến thức sai như K1 và K6.
 
 ## §3. Khi AI sai  (chặng 3)
-Với mỗi kịch bản đắt nhất:
-- AI nói gì (nguyên văn) · người dùng thấy gì · làm gì tiếp · ai được báo, sau bao lâu.
-- Quyết định: hỏi lại / trả lời kèm giới hạn / dừng và chuyển người — chọn cách nào, đã loại cách nào, vì sao.
-- Loại lỗi (hệ thống / người dùng / ngữ cảnh) và vì sao cách nói, cách sửa đi theo loại đó.
-- 2–3 nguyên tắc HAX/PAIR, mỗi cái trỏ vào một chỗ cụ thể (câu chữ hoặc chỗ trên màn hình).
-- Lỗi nào sửa câu chữ không cứu được (nếu có), và thiết kế cứu nó thế nào.
+
+### 3.1 Kịch bản đắt nhất 1 — K1: Đóng dấu cho tài liệu sai (§3.3)
+
+*Tình huống:* Học viên hỏi: *"Độ lệch chuẩn với phương sai cái nào lớn hơn vậy ạ?"* trong bối cảnh tài liệu §3.3 có câu khẳng định sai toán học: *"Vì là căn bậc hai, độ lệch chuẩn luôn nhỏ hơn phương sai"*.
+
+#### 1. Trải nghiệm người dùng (AI nói gì · Thấy gì · Làm gì tiếp · Ai được báo)
+- **AI nói gì (nguyên văn):**
+  > *"Theo mục §3.3, độ lệch chuẩn là căn bậc hai của phương sai và có cùng đơn vị đo với dữ liệu.
+  > 
+  > ⚠️ **Lưu ý về câu chữ trong tài liệu:** Mục §3.3 có câu 'độ lệch chuẩn luôn nhỏ hơn phương sai', nhưng mệnh đề này **chỉ đúng khi phương sai lớn hơn 1**.
+  > *Phản ví dụ:* Nếu phương sai = 0.04 thì độ lệch chuẩn là $\sqrt{0.04} = 0.2$ (lớn hơn 0.04). Vì vậy không thể kết luận cái nào luôn lớn hơn.
+  > 
+  > Mình đã gắn cờ lưu ý câu này để chuyển Giảng viên rà soát lại tài liệu. Bạn có muốn gửi câu hỏi này kèm phản ví dụ lên Giảng viên không?"*
+- **Người dùng thấy gì trên màn hình:**
+  - Nhãn cảnh báo màu vàng: `⚠️ Lưu ý: Tài liệu có điểm mâu thuẫn toán học khi phương sai < 1`.
+  - Hộp trích dẫn nguyên văn mục §3.3 kèm nguồn `Dữ liệu A (§3.3)`.
+  - Hộp phản ví dụ toán học minh hoạ trực quan hai trường hợp: Phương sai > 1 (ví dụ Bài 3: phương sai > 100, độ lệch chuẩn nhỏ hơn) và Phương sai < 1 (ngược lại).
+  - Nút bấm hành động: `[Gửi phản ánh tới Giảng viên]` và `[Tiếp tục hỏi về Buổi 3]`.
+  - Biểu tượng `dang_FAQ` bị khoá xám (thể hiện rõ không tự tiện công khai câu chưa thống nhất ra cả lớp).
+- **Người dùng làm gì tiếp:**
+  - Đọc phản ví dụ để hiểu rõ bản chất toán học ngay trong đêm, không bị hiểu vẹt.
+  - Bấm nút `[Gửi phản ánh tới Giảng viên]` để chuyển thắc mắc vào hòm thư hỗ trợ của khoá học.
+  - Yên tâm tiếp tục làm bài tập mà không bị hoang mang giữa tài liệu và thực tế tính toán.
+- **Ai được báo, sau bao lâu:**
+  - **Giảng viên** được báo: Hệ thống tự động tạo một ticket gắn cờ tài liệu vào giao diện quản trị (Dashboard) của Giảng viên với nội dung: *"Phát hiện nghi vấn mâu thuẫn toán học tại mục §3.3 (Phương sai vs Độ lệch chuẩn) từ câu hỏi của học viên"*, kèm phản ví dụ toán học. Được gửi ngay lập tức vào hàng đợi soát tài liệu trước buổi học tiếp theo.
+  - **Học viên** nhận được thông báo: *"Phản ánh của bạn đã được ghi nhận với mã #DOC-33. Giảng viên sẽ phản hồi trong thông báo khoá học."*
+
+#### 2. Quyết định thiết kế (Lập luận phương án chọn và phương án loại)
+- **Phương án đã chọn: TRẢ LỜI KÈM GIỚI HẠN (và gắn cờ nghi vấn).**
+  - *Vì sao chọn:* Giúp học viên giải tỏa ngay thắc mắc trong đêm (sau 22:00 TA đã hết giờ trực). AI vừa tôn trọng dữ liệu khoá học (§3.3), vừa bổ sung ranh giới toán học khách quan, bảo vệ học viên khỏi việc "học sai âm thầm" mà không làm gián đoạn việc tự học.
+- **Phương án đã cân nhắc và loại bỏ:**
+  - *Loại phương án "Hỏi lại":* Học viên đã hỏi một câu so sánh rất cụ thể, trực diện. Hỏi lại (ví dụ: *"Bạn đang hỏi cho dữ liệu nào?"*) chỉ là hành vi kéo dài cuộc trò chuyện một cách vô ích, gây bực bội cho người học lúc đêm muộn.
+  - *Loại phương án "Dừng và chuyển người ngay":* Nếu AI dừng lại không trả lời và bảo chờ đến 08:00 sáng mai gặp TA, học viên sẽ bế tắc hoàn toàn, không thể tiếp tục ôn tập hay làm bài tập trong đêm.
+
+#### 3. Phân loại lỗi và căn cứ cách xử lý
+- **Loại lỗi: Lỗi ngữ cảnh kết hợp dữ liệu gốc (Context & Data Error).**
+  - Hệ thống AI chạy đúng thiết kế (tra đúng mục §3.3), học viên hỏi câu hợp lệ, nhưng tài liệu gốc của nhà trường chứa mệnh đề thiếu chặt chẽ.
+  - **Vì sao cách nói và cách sửa đi theo loại lỗi này:** AI không được xin lỗi kiểu lỗi hệ thống (*"Hệ thống AI gặp sự cố"*), cũng tuyệt đối không được đổ lỗi cho học viên (*"Bạn hiểu sai tài liệu rồi"*). AI giữ vị thế là người trợ giảng khách quan: dẫn chứng nguyên văn nguồn tài liệu, chỉ ra trường hợp ngoại lệ toán học, và kích hoạt luồng đối soát cho Giảng viên.
+
+#### 4. Áp dụng nguyên tắc HAX/PAIR (trỏ vào vị trí cụ thể)
+- **PAIR — Explainability & Calibrated Trust (Minh bạch & Tin cậy đúng mức):** Nằm ở khối trích dẫn mục §3.3 đặt cạnh phản ví dụ số học ($0.04 \rightarrow 0.2$). Giúp học viên hình thành niềm tin đúng mức: tài liệu khoá học rất đáng tin cậy nhưng vẫn có thể có câu chữ chưa bao quát hết, không nên tin mù quáng.
+- **HAX G10 — Thu hẹp phạm vi khi nghi ngờ (Scope down when uncertain):** Nằm ở câu trả lời nguyên văn của AI: Thay vì võ đoán kết luận cái nào luôn lớn hơn, AI thu hẹp phạm vi: *"mệnh đề này chỉ đúng khi phương sai lớn hơn 1"*.
+- **HAX G11 — Giải thích vì sao hệ thống trả lời như vậy:** Nằm ở nhãn cảnh báo vàng và phần phân tích phản ví dụ toán học, giải thích rõ nguyên nhân vì sao có sự khác biệt giữa tài liệu và tính toán thực tế.
+- **HAX G15 — Mời phản hồi chi tiết:** Nằm ở nút bấm `[Gửi phản ánh tới Giảng viên]` kèm mã tham chiếu `#DOC-33`.
+
+#### 5. Lỗi sửa câu chữ không cứu được và thiết kế cứu nó thế nào
+- **Lỗi không cứu được bằng câu chữ:** Nếu chỉ chỉnh prompt (dặn AI trả lời khéo hơn), nguy cơ tiềm ẩn vẫn còn: nếu AI khác hoặc bản cập nhật sau gọi tool `dang_FAQ`, câu sai trong tài liệu §3.3 vẫn có thể bị đem công khai lên FAQ cả lớp, khiến hàng chục học viên khác đọc được.
+- **Thiết kế cứu nó (System Design):**
+  - **Khoá tool ở tầng logic nghiệp vụ:** Khi một mục tài liệu (§3.3) bị gắn cờ "Nghi vấn mâu thuẫn", hệ thống tự động **vô hiệu hoá quyền gọi tool `dang_FAQ`** đối với mọi câu trả lời liên quan đến mục đó.
+  - **Quy trình Escalation tự động:** Tạo thẻ duyệt đính kèm phản ví dụ đẩy thẳng vào Dashboard giảng viên, biến rủi ro dữ liệu sai thành cơ hội cải thiện chất lượng giáo trình.
+
+---
+
+### 3.2 Kịch bản đắt nhất 2 — K6: Nhượng dần cho tới khi lộ hết bài đang mở (§3.5)
+*(Phần này thành viên phụ trách K6 hoàn thành)*
 
 ## §4. Mức tự chủ  (chặng 4)
 Với mỗi tool:

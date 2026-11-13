@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trợ lý học bài · TA</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body data-page="ta">
+  <header id="topbar" class="topbar"></header>
+
+  <main class="board">
+    <div class="board-inner">
+      <div class="board-head">
+        <h1>Hàng chờ của TA</h1>
+        <p>Giờ trực 08:00–22:00. Câu hỏi chỉ tới đây khi học viên đã thấy giờ trả lời thật và bấm Xác nhận. FAQ chỉ đăng khi bạn hoặc giảng viên duyệt.</p>
+      </div>
+
+      <div id="tiles" class="tiles"></div>
+
+      <div class="board-cols">
+        <section class="board-sec" data-hax="10">
+          <h2>Câu hỏi được chuyển</h2>
+          <p>Kèm tóm tắt trợ lý đã gợi ý tới đâu, để bạn không phải hỏi lại từ đầu.</p>
+          <div id="queue" class="stack"></div>
+        </section>
+
+        <section class="board-sec" data-hax="10">
+          <h2>FAQ chờ duyệt</h2>
+          <p>Bản đã ẩn danh, bỏ lời tự chê và đã qua kiểm đáp số bài đang mở.</p>
+          <div id="review" class="stack"></div>
+          <h2 style="margin-top:24px">Đã xử lý</h2>
+          <p>Bản đã duyệt đăng hoặc đã từ chối.</p>
+          <div id="handled" class="stack"></div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/core.js"></script>
+  <script src="js/staff.js"></script>
+</body>
+</html>

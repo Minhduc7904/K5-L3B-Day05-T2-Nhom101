@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trợ lý học bài · Giảng viên</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body data-page="gv">
+  <header id="topbar" class="topbar"></header>
+
+  <main class="board">
+    <div class="board-inner">
+      <div class="board-head">
+        <h1>Bảng của giảng viên</h1>
+        <p>Bạn là chủ tài liệu. Trợ lý không tự sửa tài liệu và không tự đăng FAQ: nó gắn cờ câu nghi sai kèm phản ví dụ, rồi chờ bạn quyết.</p>
+      </div>
+
+      <div id="tiles" class="tiles"></div>
+
+      <div class="board-cols">
+        <section class="board-sec" data-hax="10">
+          <h2>Ticket đang mở</h2>
+          <p>Mỗi ticket khoá việc đăng FAQ về mục đó cho tới khi bạn đóng.</p>
+          <div id="tickets" class="stack"></div>
+        </section>
+
+        <section class="board-sec">
+          <h2>Đã đóng</h2>
+          <p>Mục của ticket đã đóng được gỡ cờ.</p>
+          <div id="closed" class="stack"></div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/core.js"></script>
+  <script src="js/staff.js"></script>
+</body>
+</html>

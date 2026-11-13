@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trợ lý học bài · Học viên</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body data-page="student">
+  <header id="topbar" class="topbar"></header>
+
+  <main class="layout">
+    <aside class="col col-docs" aria-label="Tài liệu buổi học">
+      <div class="col-head">
+        <h2 id="docs-title">Tài liệu buổi 3</h2>
+        <span class="col-sub" id="docs-sub"></span>
+      </div>
+      <div id="docs" class="docs"></div>
+      <details class="outline">
+        <summary>Đề cương khoá học</summary>
+        <ol id="outline-list"></ol>
+      </details>
+    </aside>
+
+    <section class="col col-chat" aria-label="Trò chuyện với trợ lý">
+      <div id="pin" class="pin" data-hax="1"></div>
+      <div id="mock-banner" class="mock-banner" hidden></div>
+      <div id="messages" class="messages" aria-live="polite"></div>
+      <div class="dock">
+        <div id="quick" class="quick"></div>
+        <div id="starters" class="starters" aria-label="Tin mồi cho demo"></div>
+        <form id="composer" class="composer">
+          <textarea id="input" rows="1" placeholder="Hỏi về tài liệu buổi 3, ví dụ: trung vị khác trung bình cộng chỗ nào?" aria-label="Tin nhắn"></textarea>
+          <button class="btn btn-primary" type="submit" id="send">Gửi</button>
+        </form>
+      </div>
+    </section>
+
+    <aside class="col col-side" aria-label="Việc đang chờ bạn">
+      <div class="col-head"><h2>Việc đang chờ bạn</h2></div>
+
+      <section class="panel" data-hax="8">
+        <div class="panel-title"><span>Gửi TA</span><span class="count badge" id="pending-count">0</span></div>
+        <div id="pending" class="stack"></div>
+      </section>
+
+      <section class="panel" data-hax="7">
+        <div class="panel-title"><span>Nháp FAQ của bạn</span><span class="count badge" id="faq-count">0</span></div>
+        <div id="faq" class="stack"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-title"><span>Không khả dụng</span></div>
+        <div class="lockbox" data-hax="9" role="note">
+          <span class="emoji" aria-hidden="true">🔒</span>
+          <span>
+            <b>Giải hộ / xác nhận đáp số bài đang mở: không khả dụng.</b>
+            <span id="lock-why">Không có nút nào làm việc này. Khi bài hết hạn và có đáp án công bố, trợ lý giải thích đầy đủ như Bài 2.</span>
+          </span>
+        </div>
+      </section>
+    </aside>
+  </main>
+
+  <script src="js/core.js"></script>
+  <script src="js/student.js"></script>
+</body>
+</html>

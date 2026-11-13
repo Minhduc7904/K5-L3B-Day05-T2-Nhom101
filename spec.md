@@ -4,9 +4,9 @@
 
 | Họ và Tên | Mã Học Viên | Việc đã làm |
 |---|---|---|
-| Nguyễn Minh Đức | 2A202603751 |  |
-| Phạm Nguyên Khoa  | 2A202603795 |  |
-|  |  |  |
+| Nguyễn Minh Đức | 2A202603751 | Quản lý kịch bản rủi ro (§1, §2), đối soát rubric M1 và điều phối thuyết trình |
+| Đỗ Lý Hoàng Nam | 2A202603777 | Thiết kế UX khi AI sai & Ma trận mức tự chủ (§3, §4, §6), lập luận cost-of-error |
+| Phạm Nguyên Khoa | 2A202603795 | Dựng Prototype tương tác (§5), tích hợp nguyên tắc HAX/PAIR, kịch bản demo |
 
 ## §1. Lát cắt & phạm vi
 - Lát cắt (chép từ track).

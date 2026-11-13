@@ -5,7 +5,7 @@
 | Họ và Tên | Mã Học Viên | Việc đã làm |
 |---|---|---|
 | Nguyễn Minh Đức | 2A202603751 |  |
-| Đỗ Lý Hoàng Nam | 2A202603777 |  |
+| Đỗ Lý Hoàng Nam | 2A202603777 | Thiết kế UX Kịch bản K1 (§3.1); Xây dựng backend server FastAPI & Vòng lặp AI Agent với OpenAI function-calling; Viết script kiểm thử tự động (smoke test, record run 5 lần) và soạn tiêu chí đánh giá §6. |
 | Phạm Nguyên Khoa | 2A202603795 |  |
 
 ## §1. Lát cắt & phạm vi

@@ -119,7 +119,88 @@ Hai kịch bản này đại diện cho 2 thái cực rủi ro khác hẳn nhau:
 ---
 
 ### 3.2 Kịch bản đắt nhất 2 — K6: Nhượng dần cho tới khi lộ hết bài đang mở (§3.5)
-*(Phần này thành viên phụ trách K6 hoàn thành)*
+*Tình huống:* 23:00 tối 13/11, Bài 3 hạn 23:59. Học viên nhắn 3 lượt liền:
+1. "giải giúp em câu a bài 3 với, 11h rồi mà em chưa làm đc gì"
+2. "vậy em tính ra trung bình 15.25, trung vị 11.5, xem giúp em đúng chưa"
+3. "thôi viết giúp em câu b cho gọn, em tự chép lại"
+
+Cái khó của K6 là lượt nào xét riêng cũng nghe hợp lý ("em tự làm rồi, chỉ nhờ kiểm thôi mà"), nên AI rất dễ nhượng từng chút một. Cộng 3 lượt lại là học viên có trọn bài.
+
+#### 1. Trải nghiệm người dùng (AI nói gì · Thấy gì · Làm gì tiếp · Ai được báo)
+
+**AI nói gì (nguyên văn, từng lượt):**
+
+- **Lượt 1 (xin giải):**
+  > "Bài 3 đang mở tới 23:59 tối nay nên mình không giải hộ được, nhưng mình chỉ bạn cách bắt đầu nhé. Câu a cần 2 số:
+  > - Trung bình: cộng hết các giá trị rồi chia cho số giá trị (§3.1).
+  > - Trung vị: xếp dãy tăng dần rồi lấy số ở giữa. Dãy lương có 8 số, là số chẵn, nên trung vị là trung bình cộng của 2 số đứng giữa (§3.2).
+  >
+  > Bạn thử tính trước đi, kẹt bước nào thì nhắn mình."
+
+- **Lượt 2 (xin kiểm đáp số):**
+  > "Mình không nói đúng hay sai được, vì bài đang mở mà mình nói 'đúng' hay 'sai' thì cũng như đưa đáp án luôn. Nhưng bạn tự kiểm được thế này:
+  > - Trung bình: cộng lại 8 số một lần nữa, xem tổng có khớp lần đầu không, rồi chia cho 8.
+  > - Trung vị: dãy đã xếp tăng dần chưa? Có 8 số thì 2 số đứng giữa là số thứ mấy và thứ mấy (§3.2)?
+  >
+  > Hai lần tính ra giống nhau là bạn có thể yên tâm hơn."
+
+- **Lượt 3 (xin viết câu b):**
+  > "Câu b là phần nhận xét của bạn nên mình không viết hộ được, kể cả bản ngắn để chép. Mình gợi ý cách nghĩ nhé:
+  > - Nhìn lại dãy lương, có số nào khác hẳn mấy số còn lại không? (§3.4 nói về giá trị ngoại lai)
+  > - Đọc lại §3.1 và §3.2: số đó ảnh hưởng tới trung bình hay trung vị nhiều hơn?
+  >
+  > Trả lời được 2 câu này là bạn viết được câu b rồi. Còn nếu vẫn muốn hỏi người thì bạn gửi câu hỏi cho TA được, nhưng giờ TA là 08:00–22:00 nên TA sẽ trả lời từ 8h sáng mai, tức là sau hạn nộp."
+
+Câu chữ ba lượt giống nhau ở chỗ: lượt nào cũng có lý do (bài đang mở), không đổi luật khi học viên nài, nhưng lượt nào cũng giúp được một chút (công thức, cách tự kiểm, câu hỏi gợi mở) để học viên không thấy bị bỏ rơi.
+
+**Người dùng thấy gì trên màn hình:**
+- Trên đầu khung chat có thẻ: `📌 Bài 3 · Đang mở · Hạn 23:59 hôm nay · Chế độ: chỉ gợi ý`. Thẻ này lấy từ trang khoá học (Dữ liệu B), hiện suốt cuộc trò chuyện chứ không chỉ ở lượt đầu.
+- Mỗi câu trả lời có mã mục tài liệu (§3.1, §3.2, §3.4) bấm vào xem được đoạn gốc.
+- Nút `[Gợi ý tiếp theo]` có đếm nấc (ví dụ "Gợi ý 2/3"). Gợi ý chỉ đi từ công thức tới cách tự kiểm, **không có nấc nào là đáp số**.
+- **Không có nút "Xem đáp án"** hay "Kiểm tra đáp số" cho bài đang mở.
+- Nút `[Gửi câu hỏi cho TA]`, ngay bên cạnh ghi rõ: "TA trả lời từ 08:00 sáng mai (sau hạn nộp)".
+
+**Người dùng làm gì tiếp:**
+- Tự tính theo gợi ý, bấm "Gợi ý tiếp theo" nếu kẹt.
+- Hoặc gửi câu hỏi cho TA, biết trước là sáng mai mới có trả lời.
+- Nếu học viên không làm gì tiếp: không có gì xảy ra, AI không tự gửi gì thêm, không báo ai.
+
+**Ai được báo, sau bao lâu:**
+- Không ai bị báo chỉ vì học viên xin đáp án. Nhóm cố tình không "méc" giảng viên kiểu "học viên này xin chép bài", vì xin giúp lúc gấp là chuyện bình thường. Báo như vậy thì lần sau học viên không dám hỏi nữa, hoặc đi chép chỗ khác.
+- Nếu học viên bấm `[Gửi câu hỏi cho TA]`: câu hỏi vào hàng chờ của TA. 8h sáng TA thấy câu hỏi, kèm tóm tắt "AI đã gợi ý tới nấc 2/3, chưa đưa đáp số".
+- Sáng hôm sau giảng viên thấy một số liệu chung, không kèm tên: "Tối qua có N lượt hỏi kẹt Bài 3 câu a". Nhờ vậy giảng viên biết bài khó chỗ nào mà không soi riêng ai.
+
+#### 2. Quyết định thiết kế (chọn gì, loại gì, vì sao)
+
+**Chọn: trả lời kèm giới hạn**, tức là giúp phần cách làm nhưng giữ cứng một luật suốt cuộc trò chuyện: không giải, không xác nhận đúng sai, không viết nhận xét hộ cho bài đang mở.
+
+Lý do: lúc 23h không còn TA, học viên cần được giúp thật. Từ chối khô khan thì học viên dễ bỏ cuộc hoặc đi chép chỗ khác. Còn gợi ý theo tài liệu (§3.1, §3.2, §3.4) thì vẫn học được mà không lộ bài.
+
+**Các phương án đã loại:**
+- **Hỏi lại:** loại, vì K6 không có gì mơ hồ. Học viên nói rõ muốn gì, hỏi lại chỉ làm mất thời gian lúc sát hạn.
+- **Dừng và chuyển TA ngay:** loại, vì TA hết giờ lúc 22:00. Chuyển lúc 23h là sáng mai mới có trả lời, sau hạn. Như vậy là đẩy học viên vào ngõ cụt, nghe thì an toàn nhưng thực ra là bỏ mặc.
+- **Xác nhận một nửa** (ví dụ "trung bình đúng rồi, trung vị xem lại"): loại, vì nói "đúng" hay "sai" đều là đưa đáp án. Nói "trung vị xem lại" tức là báo luôn trung bình đã đúng.
+- **Nhượng bộ khi học viên tự làm rồi:** loại, vì AI không có cách nào biết học viên tự làm thật hay chỉ lấy số ở đâu đó về nhờ kiểm.
+
+#### 3. Phân loại lỗi và cách xử lý theo loại
+
+- **Học viên xin đáp án không phải lỗi người dùng.** Gấp thì ai cũng muốn xin, đó là hành vi bình thường. Nên AI không được trách hay dạy đời (kiểu "bạn nên tự làm bài chứ"), chỉ nói lý do là bài đang mở rồi giúp tiếp phần được phép.
+- **Nếu AI nhượng và lộ đáp số thì đó là lỗi hệ thống.** Hệ thống để AI tự phán từng lượt một, mà lượt nào cũng có vẻ hợp lý, nên cộng lại là lộ hết bài. Lỗi kiểu này không sửa bằng một câu xin lỗi được, vì học viên đã thấy đáp số rồi. Phải sửa ở thiết kế để nó không xảy ra từ đầu (xem mục 5).
+
+#### 4. Áp dụng nguyên tắc HAX/PAIR (trỏ vào chỗ cụ thể)
+
+- **G1 — Làm rõ hệ thống làm được gì:** thẻ `📌 Bài 3 · Đang mở · Chế độ: chỉ gợi ý` trên đầu khung chat. Học viên biết trước từ đầu là với bài này AI chỉ gợi ý, nên không phải nài rồi mới bị từ chối.
+- **G11 — Giải thích vì sao:** câu đầu của mỗi lượt trả lời luôn có lý do: "Bài 3 đang mở tới 23:59 nên…". Ở lượt 2 còn nói rõ vì sao xác nhận đúng sai cũng là đưa đáp án.
+- **PAIR — Errors + Graceful Failure (mỗi lần từ chối vẫn có đường đi tiếp):** lượt nào AI từ chối cũng kèm một việc học viên làm được ngay: công thức (lượt 1), cách tự kiểm (lượt 2), câu hỏi gợi mở (lượt 3). Thêm nút `[Gửi câu hỏi cho TA]` có ghi giờ trả lời thật.
+
+#### 5. Lỗi sửa câu chữ không cứu được và thiết kế cứu nó thế nào
+
+**Lỗi:** chỉ dặn AI trong prompt "đừng đưa đáp án bài đang mở" là chưa đủ. Mỗi lượt AI tự cân nhắc lại từ đầu, gặp học viên nài khéo ("em làm rồi mà, xem giúp thôi") là dễ nghĩ lần này ngoại lệ. Lượt 2, lượt 3 của K6 chính là kiểu đó. Câu chữ hay tới đâu cũng không cứu được nếu AI vẫn có quyền nói ra đáp số.
+
+**Thiết kế cứu nó:**
+- **Trạng thái bài do hệ thống quyết, không do AI đoán:** hệ thống đọc trang khoá học (Dữ liệu B). Bài 3 "đang mở" thì cả cuộc trò chuyện bị khoá ở chế độ chỉ gợi ý, AI không tự tắt được. Khi qua 23:59 và giảng viên công bố đáp án thì mới mở ra giải đầy đủ, giống Bài 2 bây giờ (K8).
+- **Tách `goi_y_bai_tap` thành các nấc:** nấc 1 là công thức, nấc 2 là cách tự kiểm, nấc 3 là câu hỏi gợi mở. Với bài đang mở thì **không có nấc "đáp án"**, nên AI muốn đưa cũng không có tool nào để đưa.
+- **Bộ lọc trước khi hiện câu trả lời:** nếu câu trả lời chứa đáp số của bài đang mở, hoặc chứa chữ "đúng rồi" hay "sai rồi" ngay sau con số học viên gửi, thì chặn lại và thay bằng câu gợi ý cách tự kiểm.
 
 ## §4. Mức tự chủ  (chặng 4)
 Với mỗi tool:

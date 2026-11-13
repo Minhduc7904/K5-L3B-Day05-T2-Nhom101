@@ -30,3 +30,4 @@ Nhóm xác lập 3 tiêu chí chấm được tự động dựa trên kết qu�
 * **Cách giảm thiểu đã thiết kế:** 
   - Đưa nút `[Báo sai]` (HAX G15) thường trực ở mọi câu trả lời để học viên có đường phản ánh trực tiếp tới giảng viên.
   - Luôn lưu bản ghi replay chuẩn (`data/replays/K1.json`) để dự phòng khi demo hoặc khi mạng gián đoạn.
+

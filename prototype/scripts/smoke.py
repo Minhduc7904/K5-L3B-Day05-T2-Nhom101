@@ -18,23 +18,26 @@ from dotenv import load_dotenv
 load_dotenv(BACKEND_DIR / ".env")
 
 import httpx
+from fastapi.testclient import TestClient
 from app import state
 from app.main import app
 
 BASE_URL = os.environ.get("BASE_URL", "http://test")
 
 
-def get_client() -> httpx.Client:
+def get_client():
+    """Có BASE_URL: gọi server đang chạy. Không có: gọi thẳng app trong tiến trình.
+    (httpx >= 0.28 đã bỏ tham số `app=`, nên dùng TestClient của FastAPI.)"""
     if os.environ.get("BASE_URL"):
         return httpx.Client(base_url=BASE_URL, timeout=60.0)
-    return httpx.Client(app=app, base_url="http://test", timeout=60.0)
+    return TestClient(app)
 
 
 def run_smoke_tests():
     print("=== BẮT ĐẦU SMOKE TEST AGENT A ===")
     if not os.environ.get("OPENAI_API_KEY"):
         print("[LỖI] Chưa có biến môi trường OPENAI_API_KEY.")
-        print("Hãy tạo file prototype/backend/.env với OPENAI_API_KEY=sk-... và OPENAI_MODEL=gpt-4o-mini")
+        print("Hãy tạo file prototype/backend/.env với OPENAI_API_KEY=sk-... và OPENAI_MODEL=gpt-5.4")
         sys.exit(1)
 
     client = get_client()

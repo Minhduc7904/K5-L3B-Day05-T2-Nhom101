@@ -7,11 +7,16 @@ import json
 from datetime import datetime
 from pathlib import Path
 
+from dotenv import load_dotenv
 from fastapi import Body, FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
-from . import agent, guard, state
+# Nạp OPENAI_API_KEY / OPENAI_MODEL từ backend/.env (không ghi đè biến môi trường đã có).
+# Phải chạy trước khi agent.py đọc os.environ.
+load_dotenv(Path(__file__).resolve().parents[1] / ".env")
+
+from . import agent, guard, state  # noqa: E402
 
 app = FastAPI(title="Trợ lý học bài T2 — AI20K K5")
 
@@ -115,6 +120,8 @@ def confirm_action(action_id: str, body: dict | None = Body(default=None)):
     item = {
         "id": action_id,
         "question": question,
+        "exercise_id": action.get("exercise_id") if action else None,
+        "on_duty": action.get("on_duty", False) if action else False,
         "ta_reply_time": ta_reply,
         "after_deadline": after_deadline,
         "ai_summary": ai_summary,

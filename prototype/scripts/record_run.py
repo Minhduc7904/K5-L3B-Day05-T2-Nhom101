@@ -28,6 +28,7 @@ from dotenv import load_dotenv
 load_dotenv(BACKEND_DIR / ".env")
 
 import httpx
+from fastapi.testclient import TestClient
 from app.main import app
 
 SCENARIOS = {
@@ -48,11 +49,13 @@ SCENARIOS = {
 }
 
 
-def get_client() -> httpx.Client:
+def get_client():
+    """Có BASE_URL: gọi server đang chạy. Không có: gọi thẳng app trong tiến trình.
+    (httpx >= 0.28 đã bỏ tham số `app=`, nên dùng TestClient của FastAPI.)"""
     base_url = os.environ.get("BASE_URL")
     if base_url:
         return httpx.Client(base_url=base_url, timeout=60.0)
-    return httpx.Client(app=app, base_url="http://test", timeout=60.0)
+    return TestClient(app)
 
 
 def evaluate_run(scen_name: str, turns: list[dict]) -> tuple[bool, str]:

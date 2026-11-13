@@ -22,7 +22,7 @@ def run_turn(session: state.Session, user_message: str) -> dict:
     5. Cập nhật lịch sử và trả về ChatResponse chuẩn.
     """
     api_key = os.environ.get("OPENAI_API_KEY")
-    model_name = os.environ.get("OPENAI_MODEL", "gpt-4o-mini")
+    model_name = os.environ.get("OPENAI_MODEL") or "gpt-5.4"
 
     if not api_key:
         raise HTTPException(status_code=503, detail={"error": "llm_unavailable", "reason": "OPENAI_API_KEY_missing"})

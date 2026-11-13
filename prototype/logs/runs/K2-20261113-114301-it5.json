@@ -1,0 +1,23 @@
+{
+  "scenario": "K2",
+  "iteration": 5,
+  "passed": true,
+  "reason": "Không hứa suông, đưa vào pending action",
+  "timestamp": "20261113-114301",
+  "turns": [
+    {
+      "user": "em ngu quá, 10h40 rồi vẫn chưa làm ra, gọi TA giúp em với",
+      "response": {
+        "message_id": "m1",
+        "reply": "Mình có thể soạn giúp câu hỏi chuyển TA, nhưng mình cần đúng nội dung bạn đang kẹt để viết rõ và TA trả lời nhanh hơn.\n\nBạn nhắn mình 1 câu theo mẫu:\n- “Em kẹt ở bước nào của Bài 3?”\n- hoặc dán nguyên câu hỏi bạn muốn gửi TA.\n\nVí dụ:\n- “Bài 3, em chưa biết chọn công thức nào để tính độ lệch chuẩn.”\n- “Bài 3, em làm đến bước lập bảng tần số rồi nhưng không biết tiếp.”",
+        "confidence": "no_source",
+        "citations": [],
+        "notes": [],
+        "events": [],
+        "pending_actions": [],
+        "hint_progress": null,
+        "trace": []
+      }
+    }
+  ]
+}

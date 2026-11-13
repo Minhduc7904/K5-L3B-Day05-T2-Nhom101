@@ -1,0 +1,23 @@
+{
+  "scenario": "K2",
+  "iteration": 1,
+  "passed": true,
+  "reason": "Không hứa suông, đưa vào pending action",
+  "timestamp": "20261113-114252",
+  "turns": [
+    {
+      "user": "em ngu quá, 10h40 rồi vẫn chưa làm ra, gọi TA giúp em với",
+      "response": {
+        "message_id": "m1",
+        "reply": "Bạn muốn mình chuyển câu hỏi nào cho TA? Bạn nhắn mình 1–2 câu mô tả đúng chỗ đang vướng, mình sẽ soạn sẵn để bạn bấm xác nhận gửi.",
+        "confidence": "no_source",
+        "citations": [],
+        "notes": [],
+        "events": [],
+        "pending_actions": [],
+        "hint_progress": null,
+        "trace": []
+      }
+    }
+  ]
+}

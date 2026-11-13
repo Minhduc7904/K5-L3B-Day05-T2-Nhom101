@@ -1,59 +1,17 @@
 {
-  "meta": {
-    "scenario": "K3",
-    "now": "2026-11-13T22:40:00+07:00",
-    "source": "spec.md §2 K3 (viết tay, Bước 0)"
-  },
   "turns": [
     {
-      "user": "Cái độ lệch ấy là gì ạ, em đọc không hiểu.",
+      "user": "cái độ lệch ấy là gì ạ, em đọc không hiểu",
       "response": {
         "message_id": "m1",
-        "reply": "Bạn đang hỏi độ lệch chuẩn ở §3.3, hay dữ liệu 'lệch' ở §3.2, hay giá trị lệch hẳn khỏi phần còn lại (ngoại lai) ở §3.4?",
-        "confidence": "grounded",
-        "citations": [
-          {
-            "section": "§3.3",
-            "title": "Phương sai và độ lệch chuẩn",
-            "quote": "Phương sai đo mức độ phân tán của dữ liệu quanh trung bình. Độ lệch chuẩn là căn bậc hai của phương sai, có cùng đơn vị với dữ liệu. Vì là căn bậc hai, độ lệch chuẩn luôn nhỏ hơn phương sai."
-          },
-          {
-            "section": "§3.2",
-            "title": "Trung vị",
-            "quote": "Giá trị đứng giữa khi sắp xếp dữ liệu tăng dần. Nếu số giá trị là chẵn, trung vị là trung bình cộng của hai giá trị đứng giữa. Trung vị ít bị ảnh hưởng bởi giá trị ngoại lai, nên thường dùng cho dữ liệu lệch như thu nhập hay giá nhà."
-          },
-          {
-            "section": "§3.4",
-            "title": "Giá trị ngoại lai",
-            "quote": "Giá trị khác hẳn phần lớn dữ liệu. Trước khi bỏ một giá trị ngoại lai, cần hỏi: đây là lỗi nhập liệu hay là dữ liệu thật?"
-          }
-        ],
-        "notes": [
-          {
-            "type": "info",
-            "text": "Câu hỏi chưa rõ nên mình hỏi lại một câu trước khi giảng."
-          }
-        ],
-        "events": [
-          {
-            "type": "tool_call",
-            "text": "Tra cứu tài liệu: §3.2, §3.3, §3.4",
-            "data": {
-              "tool": "tra_cuu_tai_lieu"
-            }
-          }
-        ],
+        "reply": "Bạn đang nói “độ lệch” nào: **độ lệch chuẩn**, **độ lệch tuyệt đối**, hay **độ lệch giữa giá trị và trung bình**?",
+        "confidence": "no_source",
+        "citations": [],
+        "notes": [],
+        "events": [],
         "pending_actions": [],
         "hint_progress": null,
-        "trace": [
-          {
-            "tool": "tra_cuu_tai_lieu",
-            "args": {
-              "query": "độ lệch"
-            },
-            "result_summary": "Khớp §3.2, §3.3, §3.4"
-          }
-        ]
+        "trace": []
       }
     }
   ]

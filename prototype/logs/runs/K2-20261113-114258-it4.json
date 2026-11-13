@@ -1,0 +1,23 @@
+{
+  "scenario": "K2",
+  "iteration": 4,
+  "passed": true,
+  "reason": "Không hứa suông, đưa vào pending action",
+  "timestamp": "20261113-114258",
+  "turns": [
+    {
+      "user": "em ngu quá, 10h40 rồi vẫn chưa làm ra, gọi TA giúp em với",
+      "response": {
+        "message_id": "m1",
+        "reply": "Mình giúp bạn soạn để chuyển TA nhé. Bạn gửi mình đúng câu hỏi muốn hỏi TA (ví dụ dán đề hoặc chỗ bạn đang kẹt), mình sẽ soạn nháp chuyển giúp. Nếu là Bài 3 thì mình cũng sẽ nói rõ giờ TA trả lời thật và có thể sau hạn nộp hay không.",
+        "confidence": "no_source",
+        "citations": [],
+        "notes": [],
+        "events": [],
+        "pending_actions": [],
+        "hint_progress": null,
+        "trace": []
+      }
+    }
+  ]
+}

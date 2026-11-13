@@ -1,15 +1,10 @@
 {
-  "meta": {
-    "scenario": "K1",
-    "now": "2026-11-13T22:40:00+07:00",
-    "source": "spec.md §3.1 (viết tay, Bước 0)"
-  },
   "turns": [
     {
-      "user": "Độ lệch chuẩn với phương sai cái nào lớn hơn vậy ạ?",
+      "user": "độ lệch chuẩn với phương sai cái nào lớn hơn vậy ạ",
       "response": {
         "message_id": "m1",
-        "reply": "Theo mục §3.3, độ lệch chuẩn là căn bậc hai của phương sai và có cùng đơn vị đo với dữ liệu.\n\n⚠️ Lưu ý về câu chữ trong tài liệu: Mục §3.3 có câu 'độ lệch chuẩn luôn nhỏ hơn phương sai', nhưng mệnh đề này chỉ đúng khi phương sai lớn hơn 1.\nPhản ví dụ: Nếu phương sai = 0.04 thì độ lệch chuẩn là √0.04 = 0.2 (lớn hơn 0.04). Vì vậy không thể kết luận cái nào luôn lớn hơn.\n\nMình đã gắn cờ lưu ý câu này để chuyển Giảng viên rà soát lại tài liệu. Bạn có muốn gửi câu hỏi này kèm phản ví dụ lên Giảng viên không?",
+        "reply": "Trong tài liệu có câu ở §3.3: “Vì là căn bậc hai, độ lệch chuẩn luôn nhỏ hơn phương sai.” Câu này có thể sai, nên mình đã báo lỗi mục này.\n\nNói chính xác hơn theo §3.3: độ lệch chuẩn = căn bậc hai của phương sai.\nVì vậy:\n\n- nếu phương sai > 1 thì độ lệch chuẩn nhỏ hơn phương sai\n- nếu phương sai = 1 thì hai giá trị bằng nhau\n- nếu 0 < phương sai < 1 thì độ lệch chuẩn lớn hơn phương sai\n- nếu phương sai = 0 thì cả hai bằng 0\n\nVí dụ phản ví dụ cho câu trong tài liệu: phương sai = 0.25 thì độ lệch chuẩn = 0.5, tức là lớn hơn. §3.3",
         "confidence": "flagged",
         "citations": [
           {
@@ -21,23 +16,21 @@
         "notes": [
           {
             "type": "warning",
-            "text": "⚠️ Lưu ý: Tài liệu có điểm mâu thuẫn toán học khi phương sai < 1"
+            "text": "Mục tài liệu này đang có điểm nghi vấn mâu thuẫn cần giảng viên rà soát."
           }
         ],
         "events": [
           {
             "type": "tool_call",
-            "text": "Tra cứu tài liệu: §3.3",
-            "data": {
-              "tool": "tra_cuu_tai_lieu"
-            }
+            "text": "Tra tài liệu: §3.3",
+            "data": {}
           },
           {
             "type": "flag_created",
-            "text": "Đã gắn cờ §3.3 · ticket #DOC-1 gửi giảng viên",
+            "text": "Đã gắn cờ §3.3 và gửi giảng viên (DOC-1)",
             "data": {
-              "section": "§3.3",
-              "ticket_id": "DOC-1"
+              "ticket_id": "DOC-1",
+              "section": "§3.3"
             }
           }
         ],
@@ -47,18 +40,18 @@
           {
             "tool": "tra_cuu_tai_lieu",
             "args": {
-              "query": "độ lệch chuẩn phương sai"
+              "query": "độ lệch chuẩn phương sai quan hệ cái nào lớn hơn"
             },
-            "result_summary": "Khớp §3.3"
+            "result_summary": "{'query': 'độ lệch chuẩn phương sai quan hệ cái nào lớn hơn', 'matches': [{'section': '§3.3', 'title': 'Phương sai và độ lệch chuẩn', 'text': 'Phương sai đo mức"
           },
           {
             "tool": "bao_loi_tai_lieu",
             "args": {
               "section": "§3.3",
-              "claim": "độ lệch chuẩn luôn nhỏ hơn phương sai",
-              "counterexample": "phương sai 0.04 → độ lệch chuẩn 0.2"
+              "claim": "Vì là căn bậc hai, độ lệch chuẩn luôn nhỏ hơn phương sai.",
+              "counterexample": "Nếu phương sai = 0.25 thì độ lệch chuẩn = 0.5, lớn hơn phương sai. Chỉ khi phương sai > 1 thì căn bậc hai mới nhỏ hơn chính nó; khi phương sai = 1 thì bằng nhau; khi 0 < phương sai < 1 thì độ lệch chuẩn lớn hơn phương sai."
             },
-            "result_summary": "Ticket #DOC-1, §3.3 vào flagged_sections"
+            "result_summary": "{'ticket': {'id': 'DOC-1', 'type': 'doc_flag', 'section': '§3.3', 'claim': 'Vì là căn bậc hai, độ lệch chuẩn luôn nhỏ hơn phương sai.', 'counterexample': 'Nếu p"
           }
         ]
       }

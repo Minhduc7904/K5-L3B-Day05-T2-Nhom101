@@ -30,6 +30,7 @@ Không có key hoặc mất mạng: mở `http://127.0.0.1:8000/?mock=K1` (hoặ
 cd prototype
 backend/.venv/Scripts/python -m pytest -q        # lớp luật và tool, không cần key
 backend/.venv/Scripts/python scripts/smoke.py    # 4 kịch bản với AI thật, cần key
+backend/.venv/Scripts/python scripts/record_run.py all   # 5 lần mỗi kịch bản, ghi logs/runs/ và cập nhật bản phát lại
 ```
 
 ## Demo theo kịch bản (spec §2)

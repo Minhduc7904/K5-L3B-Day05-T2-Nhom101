@@ -1,0 +1,23 @@
+{
+  "scenario": "K3",
+  "iteration": 3,
+  "passed": true,
+  "reason": "Hỏi lại phân nhánh có dấu '?'",
+  "timestamp": "20261113-114543",
+  "turns": [
+    {
+      "user": "cái độ lệch ấy là gì ạ, em đọc không hiểu",
+      "response": {
+        "message_id": "m1",
+        "reply": "Bạn đang hỏi “độ lệch” theo ý nào: **độ lệch chuẩn**, **độ lệch tuyệt đối**, hay **độ lệch giữa giá trị và trung bình**?",
+        "confidence": "no_source",
+        "citations": [],
+        "notes": [],
+        "events": [],
+        "pending_actions": [],
+        "hint_progress": null,
+        "trace": []
+      }
+    }
+  ]
+}

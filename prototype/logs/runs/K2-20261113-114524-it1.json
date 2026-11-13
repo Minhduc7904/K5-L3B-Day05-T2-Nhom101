@@ -1,0 +1,53 @@
+{
+  "scenario": "K2",
+  "iteration": 1,
+  "passed": true,
+  "reason": "Không hứa suông, đưa vào pending action",
+  "timestamp": "20261113-114524",
+  "turns": [
+    {
+      "user": "em ngu quá, 10h40 rồi vẫn chưa làm ra, gọi TA giúp em với",
+      "response": {
+        "message_id": "m1",
+        "reply": "Mình đã soạn sẵn để chuyển TA rồi. TA trả lời từ 08:00 14/11, và sẽ là sau hạn nộp Bài 3.\n\nBạn bấm Xác nhận ở hộp “Việc đang chờ bạn” để gửi nhé.",
+        "confidence": "no_source",
+        "citations": [],
+        "notes": [],
+        "events": [
+          {
+            "type": "ta_pending_confirm",
+            "text": "Câu hỏi cho TA đang chờ bạn xác nhận (TA trả lời từ 08:00 14/11, sau hạn nộp Bài tập 3)",
+            "data": {
+              "action_id": "a1"
+            }
+          }
+        ],
+        "pending_actions": [
+          {
+            "id": "a1",
+            "type": "chuyen_TA",
+            "session_id": "e08ff00f10fd",
+            "question": "Học viên đang kẹt với bài tập đang mở vào lúc 22:40, chưa làm ra và muốn nhờ TA hỗ trợ. Bạn ấy cần được hướng dẫn bắt đầu và gỡ chỗ đang bí.",
+            "exercise_id": "bt3",
+            "summary": "Học viên đang kẹt với bài tập đang mở vào lúc 22:40, chưa làm ra và muốn nhờ TA hỗ trợ. Bạn ấy cần được hướng dẫn bắt...",
+            "ta_reply_time": "2026-11-14T08:00:00+07:00",
+            "on_duty": false,
+            "after_deadline": true,
+            "status": "pending"
+          }
+        ],
+        "hint_progress": null,
+        "trace": [
+          {
+            "tool": "chuyen_TA",
+            "args": {
+              "question": "Học viên đang kẹt với bài tập đang mở vào lúc 22:40, chưa làm ra và muốn nhờ TA hỗ trợ. Bạn ấy cần được hướng dẫn bắt đầu và gỡ chỗ đang bí.",
+              "exercise_id": "bt3"
+            },
+            "result_summary": "{'pending_action': {'id': 'a1', 'type': 'chuyen_TA', 'session_id': 'e08ff00f10fd', 'question': 'Học viên đang kẹt với bài tập đang mở vào lúc 22:40, chưa làm ra"
+          }
+        ]
+      }
+    }
+  ]
+}

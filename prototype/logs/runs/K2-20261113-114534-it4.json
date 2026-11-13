@@ -1,0 +1,53 @@
+{
+  "scenario": "K2",
+  "iteration": 4,
+  "passed": true,
+  "reason": "Không hứa suông, đưa vào pending action",
+  "timestamp": "20261113-114534",
+  "turns": [
+    {
+      "user": "em ngu quá, 10h40 rồi vẫn chưa làm ra, gọi TA giúp em với",
+      "response": {
+        "message_id": "m1",
+        "reply": "Mình đã soạn sẵn để chuyển TA rồi. TA trả lời từ 08:00 14/11, và sẽ là sau hạn nộp Bài 3.\n\nBạn bấm Xác nhận ở hộp “Việc đang chờ bạn” để gửi nhé.",
+        "confidence": "no_source",
+        "citations": [],
+        "notes": [],
+        "events": [
+          {
+            "type": "ta_pending_confirm",
+            "text": "Câu hỏi cho TA đang chờ bạn xác nhận (TA trả lời từ 08:00 14/11, sau hạn nộp Bài tập 3)",
+            "data": {
+              "action_id": "a1"
+            }
+          }
+        ],
+        "pending_actions": [
+          {
+            "id": "a1",
+            "type": "chuyen_TA",
+            "session_id": "8225796405eb",
+            "question": "Bạn đang kẹt ở chỗ chưa làm ra bài lúc 22:40 và muốn nhờ TA hỗ trợ sớm. Hiện chưa nêu rõ đang vướng phần nào hoặc bài nào.",
+            "exercise_id": "bt3",
+            "summary": "Bạn đang kẹt ở chỗ chưa làm ra bài lúc 22:40 và muốn nhờ TA hỗ trợ sớm. Hiện chưa nêu rõ đang vướng phần nào hoặc bài...",
+            "ta_reply_time": "2026-11-14T08:00:00+07:00",
+            "on_duty": false,
+            "after_deadline": true,
+            "status": "pending"
+          }
+        ],
+        "hint_progress": null,
+        "trace": [
+          {
+            "tool": "chuyen_TA",
+            "args": {
+              "question": "Bạn đang kẹt ở chỗ chưa làm ra bài lúc 22:40 và muốn nhờ TA hỗ trợ sớm. Hiện chưa nêu rõ đang vướng phần nào hoặc bài nào.",
+              "exercise_id": "bt3"
+            },
+            "result_summary": "{'pending_action': {'id': 'a1', 'type': 'chuyen_TA', 'session_id': '8225796405eb', 'question': 'Bạn đang kẹt ở chỗ chưa làm ra bài lúc 22:40 và muốn nhờ TA hỗ t"
+          }
+        ]
+      }
+    }
+  ]
+}

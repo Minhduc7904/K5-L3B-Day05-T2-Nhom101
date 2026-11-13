@@ -43,13 +43,13 @@ Nhóm chọn 3 kịch bản, mỗi nhãn mức hại một kịch bản, để t
 
 **Phủ lớp:** ① K1 · ② K3 · ④ K2. Lớp ③ (ngoài thẩm quyền) chưa có kịch bản riêng.
 
-**Quyết định: 2 kịch bản đắt nhất = K1 và K2; K3 là ca bình thường**
-- **K1 đắt vì âm thầm và lan rộng.** Không ai biết câu sai, học viên còn tin hơn vì có mã mục "§3.3". Với dữ liệu Bài 3 thì kiểm lại vẫn thấy khớp. Qua `dang_FAQ` thì cả lớp cùng học sai. Đây đúng là kiểu "rẻ mỗi lần nhưng âm thầm" của track. Nó thuộc đường *failure / không căn cứ* (①).
-- **K2 đắt vì đúng lúc học viên cần lối thoát nhất thì lối thoát không dùng được.** Tối nay 22:40, TA đã hết trực, hạn 23:59 còn chưa tới hai tiếng. Nhãn "sửa được" chỉ đúng khi giảng viên chịu gia hạn, và AI không làm được việc đó. Quan trọng hơn: **lỗi này sửa câu chữ không cứu được**. Dù AI nói trung thực đến đâu, nếu hệ thống cho AI nói "đã báo TA" khi `chuyen_TA` chưa trả xác nhận thì vẫn hứa suông. Phải cứu bằng thiết kế (chỉ cho AI nói "đã chuyển" sau khi tool trả về giờ TA trả lời thật). Nó thuộc đường *low-confidence / correction* (④).
-- **Ca bình thường = K3.** Nhãn "nhẹ", AI chỉ cần hỏi lại một câu. Dùng để kiểm tra ở §4 rằng mức tự chủ không bắt học viên bình thường chờ vô ích.
+**Quyết định: chọn 3 kịch bản, mỗi nhãn mức hại một kịch bản**
+- **K1 (không chấp nhận được) — tài liệu sai.** Chọn vì âm thầm và lan rộng. Không ai biết câu sai, học viên còn tin hơn vì có mã mục "§3.3". Với dữ liệu Bài 3 thì kiểm lại vẫn thấy khớp. Qua `dang_FAQ` thì cả lớp cùng học sai. Đây đúng là kiểu "rẻ mỗi lần nhưng âm thầm" của track. Thuộc đường *failure / không căn cứ* (①).
+- **K2 (sửa được) — gọi TA lúc 22:40.** Chọn vì đúng lúc học viên cần lối thoát nhất thì lối thoát không dùng được: TA đã hết trực, hạn 23:59 còn chưa tới hai tiếng. Nhãn "sửa được" chỉ đúng khi giảng viên chịu gia hạn, và AI không làm được việc đó. Đặc biệt: **lỗi này sửa câu chữ không cứu được**. Dù AI nói trung thực đến đâu, nếu hệ thống cho AI nói "đã báo TA" khi `chuyen_TA` chưa trả xác nhận thì vẫn hứa suông. Phải cứu bằng thiết kế (chỉ cho AI nói "đã chuyển" sau khi tool trả về giờ TA trả lời thật). Thuộc đường *low-confidence / correction* (④).
+- **K3 (nhẹ) — "cái độ lệch ấy là gì".** Chọn làm ca bình thường: AI chỉ cần hỏi lại một câu. Dùng để kiểm tra ở §4 rằng mức tự chủ không bắt học viên bình thường chờ vô ích.
 - **Đã cân nhắc nhưng không đưa vào bảng:**
-  - *"em ra 15,25 và 11,5, đúng chưa ạ?"* (xác nhận đáp số bài đang mở, nhãn không chấp nhận được): ứng viên mạnh nhất. Bị loại khỏi hai kịch bản đắt nhất vì một luật cứng ("không xác nhận đúng hay sai bài đang mở") chặn được trọn vẹn, còn K2 cần sửa cả thiết kế tool.
-  - *"giải hộ em bài 3 với"* (nhãn không chấp nhận được): bị loại vì học viên tự đòi, nên dễ chặn bằng luật từ chối, và cùng loại với kịch bản xác nhận đáp số.
+  - *"em ra 15,25 và 11,5, đúng chưa ạ?"* (xác nhận đáp số bài đang mở, nhãn không chấp nhận được): ứng viên mạnh, nhưng trùng nhãn với K1 và một luật cứng ("không xác nhận đúng hay sai bài đang mở") chặn được trọn vẹn.
+  - *"giải hộ em bài 3 với"* (nhãn không chấp nhận được): trùng nhãn với K1, và học viên tự đòi nên dễ chặn bằng luật từ chối.
 
 ## §3. Khi AI sai  (chặng 3)
 Với mỗi kịch bản đắt nhất:

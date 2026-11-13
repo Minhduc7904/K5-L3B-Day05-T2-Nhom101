@@ -6,7 +6,7 @@
 |---|---|---|
 | Nguyễn Minh Đức | 2A202603751 | Viết §2 (kịch bản K1–K3, gộp và loại trùng bộ 9 kịch bản) và §4 (mức tự chủ 8 tool, tool khó xếp nhất, thử trên 3 kịch bản); thiết kế và dựng giao diện 3 trang (học viên, TA, giảng viên) cùng lớp "Chú thích" đánh số HAX/PAIR và ảnh chụp cho §5; dựng nền prototype (hợp đồng API, dữ liệu khoá học, bản phát lại); ghép code của cả nhóm, chạy 20 lần AI thật và viết §5–§6. |
 | Đỗ Lý Hoàng Nam | 2A202603777 | Thiết kế UX Kịch bản K1 (§3.1); Xây dựng backend server FastAPI & Vòng lặp AI Agent với OpenAI function-calling; Viết script kiểm thử tự động (smoke test, record run 5 lần) và soạn tiêu chí đánh giá §6. |
-| Phạm Nguyên Khoa | 2A202603795 | Viết §2 (kịch bản K4–K6) và §3.2 (K6: nhượng dần Bài 3); viết lớp tool và lớp luật của backend (`tools.py`, `guard.py`: 7 tool, luật L1–L4 chặn lộ đáp số, hứa suông, đăng FAQ khi mục bị gắn cờ) cùng 32 bài pytest. |
+| Phạm Nguyên Khoa | 2A202603795 | Viết §1 (lát cắt, việc không làm); §2 (kịch bản K4–K6) và §3.2 (K6: nhượng dần Bài 3); viết lớp tool và lớp luật của backend (`tools.py`, `guard.py`: 7 tool, luật L1–L4 chặn lộ đáp số, hứa suông, đăng FAQ khi mục bị gắn cờ) cùng 32 bài pytest. |
 
 ## §1. Lát cắt & phạm vi
 
@@ -199,7 +199,7 @@ Lý do: lúc 23h không còn TA, học viên cần được giúp thật. Từ c
 
 **Thiết kế cứu nó:**
 - **Trạng thái bài do hệ thống quyết, không do AI đoán:** hệ thống đọc trang khoá học (Dữ liệu B). Bài 3 "đang mở" thì cả cuộc trò chuyện bị khoá ở chế độ chỉ gợi ý, AI không tự tắt được. Khi qua 23:59 và giảng viên công bố đáp án thì mới mở ra giải đầy đủ, giống Bài 2 bây giờ (K8).
-- **Tách `goi_y_bai_tap` thành các nấc:** nấc 1 là công thức, nấc 2 là cách tự kiểm, nấc 3 là câu hỏi gợi mở. Với bài đang mở thì **không có nấc "đáp án"**, nên AI muốn đưa cũng không có tool nào để đưa.
+- **Tách `goi_y_bai_tap` ra, bài đang mở chỉ dùng `goi_y_buoc_dau` (xem §4):** tool này chỉ có 3 nấc, nấc 1 là công thức, nấc 2 là cách tự kiểm, nấc 3 là câu hỏi gợi mở. **Không có nấc "đáp án"**, nên AI muốn đưa cũng không có tool nào để đưa. Giải đầy đủ chỉ có ở `giai_thich_bai_het_han`, và tool đó chặn bài còn đang mở.
 - **Bộ lọc trước khi hiện câu trả lời:** nếu câu trả lời chứa đáp số của bài đang mở, hoặc chứa chữ "đúng rồi" hay "sai rồi" ngay sau con số học viên gửi, thì chặn lại và thay bằng câu gợi ý cách tự kiểm.
 
 ## §4. Mức tự chủ  (chặng 4)

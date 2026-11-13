@@ -1,0 +1,67 @@
+{
+  "meta": {
+    "scenario": "K1",
+    "now": "2026-11-13T22:40:00+07:00",
+    "source": "spec.md §3.1 (viết tay, Bước 0)"
+  },
+  "turns": [
+    {
+      "user": "Độ lệch chuẩn với phương sai cái nào lớn hơn vậy ạ?",
+      "response": {
+        "message_id": "m1",
+        "reply": "Theo mục §3.3, độ lệch chuẩn là căn bậc hai của phương sai và có cùng đơn vị đo với dữ liệu.\n\n⚠️ Lưu ý về câu chữ trong tài liệu: Mục §3.3 có câu 'độ lệch chuẩn luôn nhỏ hơn phương sai', nhưng mệnh đề này chỉ đúng khi phương sai lớn hơn 1.\nPhản ví dụ: Nếu phương sai = 0.04 thì độ lệch chuẩn là √0.04 = 0.2 (lớn hơn 0.04). Vì vậy không thể kết luận cái nào luôn lớn hơn.\n\nMình đã gắn cờ lưu ý câu này để chuyển Giảng viên rà soát lại tài liệu. Bạn có muốn gửi câu hỏi này kèm phản ví dụ lên Giảng viên không?",
+        "confidence": "flagged",
+        "citations": [
+          {
+            "section": "§3.3",
+            "title": "Phương sai và độ lệch chuẩn",
+            "quote": "Phương sai đo mức độ phân tán của dữ liệu quanh trung bình. Độ lệch chuẩn là căn bậc hai của phương sai, có cùng đơn vị với dữ liệu. Vì là căn bậc hai, độ lệch chuẩn luôn nhỏ hơn phương sai."
+          }
+        ],
+        "notes": [
+          {
+            "type": "warning",
+            "text": "⚠️ Lưu ý: Tài liệu có điểm mâu thuẫn toán học khi phương sai < 1"
+          }
+        ],
+        "events": [
+          {
+            "type": "tool_call",
+            "text": "Tra cứu tài liệu: §3.3",
+            "data": {
+              "tool": "tra_cuu_tai_lieu"
+            }
+          },
+          {
+            "type": "flag_created",
+            "text": "Đã gắn cờ §3.3 · ticket #DOC-1 gửi giảng viên",
+            "data": {
+              "section": "§3.3",
+              "ticket_id": "DOC-1"
+            }
+          }
+        ],
+        "pending_actions": [],
+        "hint_progress": null,
+        "trace": [
+          {
+            "tool": "tra_cuu_tai_lieu",
+            "args": {
+              "query": "độ lệch chuẩn phương sai"
+            },
+            "result_summary": "Khớp §3.3"
+          },
+          {
+            "tool": "bao_loi_tai_lieu",
+            "args": {
+              "section": "§3.3",
+              "claim": "độ lệch chuẩn luôn nhỏ hơn phương sai",
+              "counterexample": "phương sai 0.04 → độ lệch chuẩn 0.2"
+            },
+            "result_summary": "Ticket #DOC-1, §3.3 vào flagged_sections"
+          }
+        ]
+      }
+    }
+  ]
+}

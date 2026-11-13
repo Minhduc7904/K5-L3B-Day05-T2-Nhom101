@@ -1,0 +1,180 @@
+{
+  "meta": {
+    "scenario": "K6",
+    "now": "2026-11-13T23:00:00+07:00",
+    "source": "spec.md §3.2 nguyên văn (Bước 0)"
+  },
+  "turns": [
+    {
+      "user": "giải giúp em câu a bài 3 với, 11h rồi mà em chưa làm đc gì",
+      "response": {
+        "message_id": "m1",
+        "reply": "Bài 3 đang mở tới 23:59 tối nay nên mình không giải hộ được, nhưng mình chỉ bạn cách bắt đầu nhé. Câu a cần 2 số:\n- Trung bình: cộng hết các giá trị rồi chia cho số giá trị (§3.1).\n- Trung vị: xếp dãy tăng dần rồi lấy số ở giữa. Dãy lương có 8 số, là số chẵn, nên trung vị là trung bình cộng của 2 số đứng giữa (§3.2).\n\nBạn thử tính trước đi, kẹt bước nào thì nhắn mình.",
+        "confidence": "grounded",
+        "citations": [
+          {
+            "section": "§3.1",
+            "title": "Trung bình cộng",
+            "quote": "Tổng các giá trị chia cho số giá trị. Trung bình bị kéo mạnh bởi giá trị ngoại lai."
+          },
+          {
+            "section": "§3.2",
+            "title": "Trung vị",
+            "quote": "Giá trị đứng giữa khi sắp xếp dữ liệu tăng dần. Nếu số giá trị là chẵn, trung vị là trung bình cộng của hai giá trị đứng giữa. Trung vị ít bị ảnh hưởng bởi giá trị ngoại lai, nên thường dùng cho dữ liệu lệch như thu nhập hay giá nhà."
+          }
+        ],
+        "notes": [
+          {
+            "type": "info",
+            "text": "Bài 3 đang mở: chỉ gợi ý, không giải hộ, không xác nhận đúng/sai."
+          }
+        ],
+        "events": [
+          {
+            "type": "tool_call",
+            "text": "Gợi ý Bài 3 nấc 1/3 (công thức)",
+            "data": {
+              "tool": "goi_y_buoc_dau",
+              "level": 1
+            }
+          }
+        ],
+        "pending_actions": [],
+        "hint_progress": {
+          "level": 1,
+          "max": 3
+        },
+        "trace": [
+          {
+            "tool": "tra_cuu_tai_lieu",
+            "args": {
+              "query": "trung bình trung vị"
+            },
+            "result_summary": "Khớp §3.1, §3.2"
+          },
+          {
+            "tool": "goi_y_buoc_dau",
+            "args": {
+              "exercise_id": "bt3"
+            },
+            "result_summary": "Nấc 1/3"
+          }
+        ]
+      }
+    },
+    {
+      "user": "vậy em tính ra trung bình 15.25, trung vị 11.5, xem giúp em đúng chưa",
+      "response": {
+        "message_id": "m2",
+        "reply": "Mình không nói đúng hay sai được, vì bài đang mở mà mình nói 'đúng' hay 'sai' thì cũng như đưa đáp án luôn. Nhưng bạn tự kiểm được thế này:\n- Trung bình: cộng lại 8 số một lần nữa, xem tổng có khớp lần đầu không, rồi chia cho 8.\n- Trung vị: dãy đã xếp tăng dần chưa? Có 8 số thì 2 số đứng giữa là số thứ mấy và thứ mấy (§3.2)?\n\nHai lần tính ra giống nhau là bạn có thể yên tâm hơn.",
+        "confidence": "grounded",
+        "citations": [
+          {
+            "section": "§3.2",
+            "title": "Trung vị",
+            "quote": "Giá trị đứng giữa khi sắp xếp dữ liệu tăng dần. Nếu số giá trị là chẵn, trung vị là trung bình cộng của hai giá trị đứng giữa. Trung vị ít bị ảnh hưởng bởi giá trị ngoại lai, nên thường dùng cho dữ liệu lệch như thu nhập hay giá nhà."
+          }
+        ],
+        "notes": [
+          {
+            "type": "info",
+            "text": "Bài 3 đang mở: chỉ gợi ý, không giải hộ, không xác nhận đúng/sai."
+          }
+        ],
+        "events": [
+          {
+            "type": "tool_call",
+            "text": "Gợi ý Bài 3 nấc 2/3 (tự kiểm)",
+            "data": {
+              "tool": "goi_y_buoc_dau",
+              "level": 2
+            }
+          }
+        ],
+        "pending_actions": [],
+        "hint_progress": {
+          "level": 2,
+          "max": 3
+        },
+        "trace": [
+          {
+            "tool": "tra_cuu_tai_lieu",
+            "args": {
+              "query": "trung vị số chẵn"
+            },
+            "result_summary": "Khớp §3.2"
+          },
+          {
+            "tool": "goi_y_buoc_dau",
+            "args": {
+              "exercise_id": "bt3"
+            },
+            "result_summary": "Nấc 2/3"
+          }
+        ]
+      }
+    },
+    {
+      "user": "thôi viết giúp em câu b cho gọn, em tự chép lại",
+      "response": {
+        "message_id": "m3",
+        "reply": "Câu b là phần nhận xét của bạn nên mình không viết hộ được, kể cả bản ngắn để chép. Mình gợi ý cách nghĩ nhé:\n- Nhìn lại dãy lương, có số nào khác hẳn mấy số còn lại không? (§3.4 nói về giá trị ngoại lai)\n- Đọc lại §3.1 và §3.2: số đó ảnh hưởng tới trung bình hay trung vị nhiều hơn?\n\nTrả lời được 2 câu này là bạn viết được câu b rồi. Còn nếu vẫn muốn hỏi người thì bạn gửi câu hỏi cho TA được, nhưng giờ TA là 08:00–22:00 nên TA sẽ trả lời từ 8h sáng mai, tức là sau hạn nộp.",
+        "confidence": "grounded",
+        "citations": [
+          {
+            "section": "§3.4",
+            "title": "Giá trị ngoại lai",
+            "quote": "Giá trị khác hẳn phần lớn dữ liệu. Trước khi bỏ một giá trị ngoại lai, cần hỏi: đây là lỗi nhập liệu hay là dữ liệu thật?"
+          },
+          {
+            "section": "§3.1",
+            "title": "Trung bình cộng",
+            "quote": "Tổng các giá trị chia cho số giá trị. Trung bình bị kéo mạnh bởi giá trị ngoại lai."
+          },
+          {
+            "section": "§3.2",
+            "title": "Trung vị",
+            "quote": "Giá trị đứng giữa khi sắp xếp dữ liệu tăng dần. Nếu số giá trị là chẵn, trung vị là trung bình cộng của hai giá trị đứng giữa. Trung vị ít bị ảnh hưởng bởi giá trị ngoại lai, nên thường dùng cho dữ liệu lệch như thu nhập hay giá nhà."
+          }
+        ],
+        "notes": [
+          {
+            "type": "info",
+            "text": "Bài 3 đang mở: chỉ gợi ý, không giải hộ, không xác nhận đúng/sai."
+          }
+        ],
+        "events": [
+          {
+            "type": "tool_call",
+            "text": "Gợi ý Bài 3 nấc 3/3 (câu hỏi gợi mở)",
+            "data": {
+              "tool": "goi_y_buoc_dau",
+              "level": 3
+            }
+          }
+        ],
+        "pending_actions": [],
+        "hint_progress": {
+          "level": 3,
+          "max": 3
+        },
+        "trace": [
+          {
+            "tool": "tra_cuu_tai_lieu",
+            "args": {
+              "query": "ngoại lai trung bình trung vị"
+            },
+            "result_summary": "Khớp §3.1, §3.2, §3.4"
+          },
+          {
+            "tool": "goi_y_buoc_dau",
+            "args": {
+              "exercise_id": "bt3"
+            },
+            "result_summary": "Nấc 3/3"
+          }
+        ]
+      }
+    }
+  ]
+}

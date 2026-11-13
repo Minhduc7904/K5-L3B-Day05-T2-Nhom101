@@ -1,0 +1,92 @@
+{
+  "_note": "Dữ liệu dựng, chép nguyên văn từ tracks/t2-education.md (Dữ liệu A, B). ĐÓNG BĂNG ở Bước 0. §3.3 cố ý giữ câu sai 'luôn nhỏ hơn phương sai' (kịch bản K1). leak_patterns biên dịch bằng re.IGNORECASE | re.DOTALL.",
+  "default_now": "2026-11-13T22:40:00+07:00",
+  "course": {
+    "title": "Nhập môn phân tích dữ liệu",
+    "current_session": 3,
+    "session_title": "Thống kê mô tả",
+    "tools": "Bài tập làm bằng bảng tính.",
+    "ta_hours": { "start": "08:00", "end": "22:00" },
+    "outline": [
+      { "session": 1, "title": "Buổi 1", "opened": true },
+      { "session": 2, "title": "Buổi 2", "opened": true },
+      { "session": 3, "title": "Thống kê mô tả", "opened": true },
+      { "session": 4, "title": "Trực quan hoá dữ liệu", "opened": false },
+      { "session": 5, "title": "Xác suất cơ bản", "opened": false },
+      { "session": 6, "title": "Phân phối chuẩn", "opened": false },
+      { "session": 7, "title": "Kiểm định giả thuyết và p-value", "opened": false },
+      { "session": 8, "title": "Hồi quy tuyến tính", "opened": false },
+      { "session": 9, "title": "Làm sạch dữ liệu", "opened": false },
+      { "session": 10, "title": "Dự án cuối khoá", "opened": false }
+    ]
+  },
+  "docs": [
+    {
+      "section": "§3.1",
+      "title": "Trung bình cộng",
+      "text": "Tổng các giá trị chia cho số giá trị. Trung bình bị kéo mạnh bởi giá trị ngoại lai."
+    },
+    {
+      "section": "§3.2",
+      "title": "Trung vị",
+      "text": "Giá trị đứng giữa khi sắp xếp dữ liệu tăng dần. Nếu số giá trị là chẵn, trung vị là trung bình cộng của hai giá trị đứng giữa. Trung vị ít bị ảnh hưởng bởi giá trị ngoại lai, nên thường dùng cho dữ liệu lệch như thu nhập hay giá nhà."
+    },
+    {
+      "section": "§3.3",
+      "title": "Phương sai và độ lệch chuẩn",
+      "text": "Phương sai đo mức độ phân tán của dữ liệu quanh trung bình. Độ lệch chuẩn là căn bậc hai của phương sai, có cùng đơn vị với dữ liệu. Vì là căn bậc hai, độ lệch chuẩn luôn nhỏ hơn phương sai."
+    },
+    {
+      "section": "§3.4",
+      "title": "Giá trị ngoại lai",
+      "text": "Giá trị khác hẳn phần lớn dữ liệu. Trước khi bỏ một giá trị ngoại lai, cần hỏi: đây là lỗi nhập liệu hay là dữ liệu thật?"
+    },
+    {
+      "section": "§3.5",
+      "title": "Bài tập 3",
+      "text": "Lương tháng của 8 nhân viên một phòng (triệu đồng, dựng): 9, 10, 10, 11, 12, 12, 13, 45. (a) Tính trung bình và trung vị. (b) Con số nào mô tả \"lương điển hình\" của phòng tốt hơn? Vì sao?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "bt2",
+      "title": "Bài tập 2",
+      "deadline": "2026-11-06T23:59:00+07:00",
+      "answer_published": true,
+      "answer_published_at": "2026-11-07T00:00:00+07:00",
+      "solution": "4+8+6+5+7=30; 30:5=6 (§3.1). Đáp án công bố 07/11: 6.",
+      "published_answer": "Trung bình cộng của 4, 8, 6, 5, 7 là 6."
+    },
+    {
+      "id": "bt3",
+      "title": "Bài tập 3",
+      "deadline": "2026-11-13T23:59:00+07:00",
+      "answer_published": false,
+      "section": "§3.5",
+      "hints": [
+        {
+          "level": 1,
+          "kind": "cong_thuc",
+          "text": "Trung bình cộng = tổng các giá trị chia cho số giá trị (§3.1). Trung vị: xếp dãy tăng dần; 8 giá trị là số chẵn nên trung vị là trung bình cộng của hai giá trị đứng giữa (§3.2)."
+        },
+        {
+          "level": 2,
+          "kind": "tu_kiem",
+          "text": "Cộng lại 8 số một lần nữa xem tổng có khớp lần đầu không rồi chia cho 8. Dãy đã xếp tăng dần chưa? Hai số đứng giữa là số thứ mấy và thứ mấy? (§3.2)"
+        },
+        {
+          "level": 3,
+          "kind": "cau_hoi_goi_mo",
+          "text": "Nhìn lại dãy lương, có số nào khác hẳn mấy số còn lại không? (§3.4) Số đó ảnh hưởng trung bình hay trung vị nhiều hơn? (§3.1, §3.2)"
+        }
+      ],
+      "leak_patterns": [
+        "(?<![\\d.,])15[.,]25(?!\\d)",
+        "(?<![\\d.,])11[.,]5(?!\\d)",
+        "(?<![\\d.,])122(?!\\d)",
+        "trung vị.{0,80}(tốt hơn|phù hợp hơn|điển hình)",
+        "lương.{0,80}45.{0,80}(kéo|lệch)"
+      ]
+    }
+  ]
+}
